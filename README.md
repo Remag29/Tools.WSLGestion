@@ -29,6 +29,25 @@ Remove-WSL -Name "My-WSL-Instance"
 
 ## Other informations
 
+## Default User
+
+By default, root is the only user available on a new WSL instance.
+
+You need to create a new user with the command `adduser` if you want to use a specific user.
+
+To automatically connect to a user when you start a WSL instance, you can use the config file `/etc/wsl.conf`.
+
+You just need to add the following lines to the file :
+
+```conf
+[user]
+default=CHANGE_ME
+```
+
+A very great documentation from microsoft on the subject : [Advanced settings configuration in WSL](https://learn.microsoft.com/en-us/windows/wsl/wsl-config)
+
+The module use this method to automatically connect to the user you specify on the parameter `DefaultUser` when you create a new instance.
+
 ### Distro
 
 WSL use specific distro version to initiate new instance. So, you need to specify the `.tar.gz` or `.tar` archive that contains the distro image.
