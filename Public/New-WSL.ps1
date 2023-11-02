@@ -32,7 +32,10 @@ function New-WSL {
                 throw "The VHD destination path doesn't exist"
             }
         })]
-        [string]$VhdDestinationFolder
+        [string]$VhdDestinationFolder,
+
+        [Parameter(Mandatory = $true, Position = 3)]
+        [string]$Username
     )
 
     # Test if the WSL instance already exists
@@ -46,7 +49,20 @@ function New-WSL {
     wsl.exe --import $Name $VhdDestinationFolder $DistroPath
 
     # Add defaul user to the WSL instance
-    # TODO
+    Write-Host "Adding the default user to the WSL instance $Name" -ForegroundColor Cyan
+
+    # Ask for the password and confirm it
+    $passwordIncorrect = $true
+    while ($passwordIncorrect) {
+        $password = Read-Host "Enter the password for the user $Username" -AsSecureString
+        $passwordConfirmation = Read-Host "Confirm the password for the user $Username" -AsSecureString
+        if (Compare-SecureString -secureString1 $password -secureString2 $passwordConfirmation) {
+            $passwordIncorrect = $false
+        } else {
+            Write-Host "The passwords don't match. Please retry" -ForegroundColor Red
+        }
+    }
+    Add-WSLDefaultUser -WslInstanceName $Name -Username $Username -Password $password
 
     # Test if the WSL instance has been created
     if (Test-WSLInstance -Name $Name) {
