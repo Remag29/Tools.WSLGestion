@@ -7,22 +7,32 @@ This module makes it easy to add and remove instances of WSL via PowerShell comm
 You can place the module on you're Module repository. By default, it's `C:\Users\CHANGE_ME\Documents\WindowsPowerShell\Modules`, but it can be different.
 
 You can now import the module with the following command :
+
 ```powershell
 Import-Mdule Tools.WSLGestion -Force
 ```
 
-> Note Noted that it is best to use the `-Force` to ensure that any older versions are overwritten.
+> Noted that it is best to use the `-Force` to ensure that any older versions are overwritten.
 
 The module commands are now visible in the PowerShell console.
 
 ## Utilisation
 
 You can create a new WSL instance with the command `New-WSL` :
+
 ```powershell
-New-WSL -Name "My-WSL-Instance" -DistroPath ".\ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz" -VhdDestinationFolder ".\Test-module\"
+New-WSL -Name "My-WSL-Instance" -DistroPath ".\ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz" -VhdDestinationFolder ".\Test-module\" -Username "bob"
 ```
 
+| Parameter            | Description                                     |
+| -------------------- | ----------------------------------------------- |
+| Name                 | Name of the new WSL instance                    |
+| DistroPath           | Path to the distro archive                      |
+| VhdDestinationFolder | Path to the folder where the VHD will be stored |
+| Username             | Username of the default user                    |
+
 You can remove a WSL instance with the command `Remove-WSL` :
+
 ```powershell
 Remove-WSL -Name "My-WSL-Instance"
 ```
@@ -55,7 +65,7 @@ WSL use specific distro version to initiate new instance. So, you need to specif
 Consider to use official WSL images
 
 For example, you can find some Ubuntu image for WSL at the link below :
-https://cloud-images.ubuntu.com/wsl/
+[WSL Ubuntu image](https://cloud-images.ubuntu.com/wsl/)
 
 Most distros are available through the Microsoft Store for direct installations. So, it will probably take some research to find them in the archive format.
 
