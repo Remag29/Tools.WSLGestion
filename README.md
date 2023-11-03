@@ -18,6 +18,8 @@ The module commands are now visible in the PowerShell console.
 
 ## Utilisation
 
+### Basics
+
 You can create a new WSL instance with the command `New-WSL` :
 
 ```powershell
@@ -36,6 +38,26 @@ You can remove a WSL instance with the command `Remove-WSL` :
 ```powershell
 Remove-WSL -Name "My-WSL-Instance"
 ```
+
+### With the configuration file
+
+You can use the command `New-WSL` with only few parameters if you have a configuration file. The mandatory parameters that the module needs will be automatically retrieve from the configuration file.
+
+Parameters `DistroPath`, `VhdDestinationFolder` and `Username` are not mandatory if you have set them in the configuration file.
+
+```powershell
+New-WSL -Name "My-WSL-Instance"
+```
+
+You can print the file content with the function `Show-WSLConfig`.
+
+The file is store on the folder `.\config\` of the module. You can edit the content here or use the function `Edit-WSLConfig`.
+
+```powershell
+Edit-WSLConfig -DistrosPath ".\my\distro.tar.gz" -VhdDestinationFolder ".\vhd\" -Username "bob"
+```
+
+> Note that you can only spécify the parameters that you want to change. The others will not be modified.
 
 ## Other informations
 
