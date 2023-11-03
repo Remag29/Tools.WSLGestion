@@ -69,16 +69,21 @@ Copyright = '(c) Remag29. All rights reserved.'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = '*'
+FunctionsToExport = @(
+    'New-WSL',
+    'Remove-WSL',
+    'Reset-WslConfigFile',
+    'Show-WslConfigFile'
+)
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-CmdletsToExport = '*'
+# CmdletsToExport = '*'
 
 # Variables to export from this module
-VariablesToExport = '*'
+# VariablesToExport = '*'
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-AliasesToExport = '*'
+# AliasesToExport = '*'
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()
@@ -87,7 +92,21 @@ AliasesToExport = '*'
 # ModuleList = @()
 
 # List of all files packaged with this module
-# FileList = @()
+FileList = @(
+    '.\Private\Add-WSLDefaultUser.ps1',
+    '.\Private\Compare-SecureString.ps1',
+    '.\Private\Get-WSLConfigParameter.ps1',
+    '.\Private\Test-WSLConfigFile.ps1',
+    '.\Private\Test-WSLConfigParameter.ps1',
+    '.\Private\Test-WSLInstance.ps1',
+    '.\Private\Test-WSLUsername.ps1',
+    '.\Public\New-WSL.ps1',
+    '.\Public\Remove-WSL.ps1',
+    '.\Public\Reset-WslConfigFile.ps1',
+    '.\Public\Show-WslConfigFile.ps1',
+    '.\Tools.WSLGestion.psd1',
+    '.\Tools.WSLGestion.psm1'
+    )
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 PrivateData = @{
@@ -101,7 +120,7 @@ PrivateData = @{
         # LicenseUri = ''
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/Remag29/Tools.WSLGestion'
 
         # A URL to an icon representing this module.
         # IconUri = ''
