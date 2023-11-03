@@ -30,7 +30,7 @@ CompanyName = 'Remag29'
 Copyright = '(c) Remag29. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'Module to manage multiple WSL instances. Create, remove ...'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
