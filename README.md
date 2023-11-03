@@ -61,7 +61,7 @@ Edit-WSLConfig -DistrosPath ".\my\distro.tar.gz" -VhdDestinationFolder ".\vhd\" 
 
 ## Other informations
 
-## Default User
+### Default User
 
 By default, root is the only user available on a new WSL instance.
 
