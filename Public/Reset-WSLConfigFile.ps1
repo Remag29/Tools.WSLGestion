@@ -1,4 +1,4 @@
-function Reset-WSLConfigFile {
+function Reset-WslConfigFile {
     [CmdletBinding()]
     param (
     )

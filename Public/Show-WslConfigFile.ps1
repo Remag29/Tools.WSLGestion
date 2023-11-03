@@ -1,4 +1,4 @@
-function Show-WslDefaultConfig {
+function Show-WslConfigFile {
     [CmdletBinding()]
     param (
     )
