@@ -9,7 +9,8 @@ function Test-WSLUsername {
     
     # Test if the instance exists
     if (-not (Test-WSLInstance -Name $WslInstanceName)) {
-        throw "Cannot test user $Username. The instance $WslInstanceName doesn't exist"
+        Write-Host "Cannot test user $Username. The instance $WslInstanceName doesn't exist" -ForegroundColor Red
+        return $false
     }
 
     # Test if the user already exists
