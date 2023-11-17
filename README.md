@@ -26,12 +26,12 @@ You can create a new WSL instance with the command `New-WSL` :
 New-WSL -Name "My-WSL-Instance" -DistroPath ".\ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz" -VhdDestinationFolder ".\Test-module\" -Username "bob"
 ```
 
-| Parameter            | Description                                     |
-| -------------------- | ----------------------------------------------- |
-| Name                 | Name of the new WSL instance                    |
-| DistroPath           | Path to the distro archive                      |
-| VhdDestinationFolder | Path to the folder where the VHD will be stored |
-| Username             | Username of the default user                    |
+| Parameter                  | Description                                     |
+| -------------------------- | ----------------------------------------------- |
+| **_Name_**                 | Name of the new WSL instance                    |
+| **_DistroPath_**           | Path to the distro archive                      |
+| **_VhdDestinationFolder_** | Path to the folder where the VHD will be stored |
+| **_Username_**             | Username of the default user                    |
 
 You can remove a WSL instance with the command `Remove-WSL` :
 
