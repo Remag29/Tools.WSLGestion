@@ -93,6 +93,9 @@ function New-WSL {
     }
     Add-WSLDefaultUser -WslInstanceName $Name -Username $Username -Password $password
 
+    # Set the default start folder
+    Edit-UserBashrc -WslInstanceName $Name -Username $Username -ContentToAdd "cd ~"
+
     # Test if the WSL instance has been created
     if (Test-WSLInstance -Name $Name) {
         Write-Host "The WSL instance $Name has been created" -ForegroundColor Green
