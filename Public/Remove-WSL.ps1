@@ -1,3 +1,17 @@
+<#
+.SYNOPSIS
+This function removes a WSL instance
+
+.DESCRIPTION
+This function removes a WSL instance. It also stops the instance before removing it.
+
+.PARAMETER Name
+Define the name of the WSL instance
+
+.EXAMPLE
+Remove-WSL -Name "Ubuntu"
+
+#>
 function Remove-WSL {
     [CmdletBinding()]
     param (

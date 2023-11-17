@@ -1,3 +1,31 @@
+<#
+.SYNOPSIS
+This function creates a new WSL instance
+
+.DESCRIPTION
+This function creates a new WSL instance and add the default user to it. It also set the default start folder to the user home folder.
+To create the WSL instance, you need to provide the name of the instance, the path to the distro archive, the path to the folder where the VHD will be stored and the username of the default user.
+If you don't provide the path to the distro archive, the path to the folder where the VHD will be stored and the username of the default user, the function will try to extract them from the config file.
+
+.PARAMETER Name
+Define the name of the WSL instance
+
+.PARAMETER DistroPath
+Define the path to the distro archive
+
+.PARAMETER VhdDestinationFolder
+Define the path to the folder where the VHD will be stored
+
+.PARAMETER Username
+Define the username of the default user
+
+.EXAMPLE
+New-WSL -Name "Ubuntu" -DistroPath "C:\Users\Public\Documents\WSL\Ubuntu.tar.gz" -VhdDestinationFolder "C:\Users\Public\Documents\WSL" -Username "ubuntu"
+
+.EXAMPLE
+New-WSL -Name "Ubuntu"
+
+#>
 function New-WSL {
     [CmdletBinding()]
     param (

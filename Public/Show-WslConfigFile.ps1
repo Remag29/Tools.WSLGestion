@@ -1,3 +1,14 @@
+<#
+.SYNOPSIS
+This function shows the content of the configuration file
+
+.DESCRIPTION
+This function shows the content of the configuration file
+
+.EXAMPLE
+Show-WslConfigFile
+
+#>
 function Show-WslConfigFile {
     [CmdletBinding()]
     param (

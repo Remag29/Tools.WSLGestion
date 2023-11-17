@@ -1,3 +1,29 @@
+<#
+.SYNOPSIS
+This function edits the content of the configuration file
+
+.DESCRIPTION
+This function edits the content of the configuration file. You can edit the path to the distro archive, the path to the folder where the VHD will be stored and the username of the default user.
+
+.PARAMETER DistroPath
+Define the path to the distro archive to set in the configuration file
+
+.PARAMETER VhdDestinationFolder
+Define the path to the folder where the VHD will be stored to set in the configuration file
+
+.PARAMETER Username
+Define the username of the default user to set in the configuration file
+
+.EXAMPLE
+Edit-WSLConfigFile -DistroPath "C:\Users\Public\Documents\WSL\Ubuntu.tar.gz" -VhdDestinationFolder "C:\Users\Public\Documents\WSL" -Username "ubuntu"
+
+.EXAMPLE
+Edit-WSLConfigFile -DistroPath "C:\Users\Public\Documents\WSL\Ubuntu.tar.gz"
+
+.EXAMPLE
+Edit-WSLConfigFile -Username "ubuntu"
+
+#>
 function Edit-WSLConfigFile {
     [CmdletBinding()]
     param (
