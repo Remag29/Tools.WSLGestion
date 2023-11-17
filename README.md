@@ -57,7 +57,7 @@ The file is store on the folder `.\config\` of the module. You can edit the cont
 Edit-WSLConfig -DistrosPath ".\my\distro.tar.gz" -VhdDestinationFolder ".\vhd\" -Username "bob"
 ```
 
-> Note that you can only spécify the parameters that you want to change. The others will not be modified.
+> Note that you can only specify the parameters that you want to change. The others will not be modified.
 
 ## Other informations
 
@@ -65,20 +65,18 @@ Edit-WSLConfig -DistrosPath ".\my\distro.tar.gz" -VhdDestinationFolder ".\vhd\" 
 
 By default, root is the only user available on a new WSL instance.
 
-You need to create a new user with the command `adduser` if you want to use a specific user.
+The module automatically create a new user with the username specify on the parameter `Username` when you create a new instance.
 
-To automatically connect to a user when you start a WSL instance, you can use the config file `/etc/wsl.conf`.
+To automatically connect to a user when you start a WSL instance, the module use the config file `/etc/wsl.conf`.
 
-You just need to add the following lines to the file :
+It's simply add the following lines to the file :
 
 ```conf
 [user]
-default=CHANGE_ME
+default=MY_USERNAME
 ```
 
 A very great documentation from microsoft on the subject : [Advanced settings configuration in WSL](https://learn.microsoft.com/en-us/windows/wsl/wsl-config)
-
-The module use this method to automatically connect to the user you specify on the parameter `DefaultUser` when you create a new instance.
 
 ### Distro
 
@@ -102,3 +100,13 @@ By default, VHD are store at `C:\Users\CHANGE_ME\AppData\Local\Packages\YOU_DIST
 When tou create an instance with the module, the vhd file is store on the folder specify on the parameter `VhdDestinationFolder`
 
 Here is a great documentation from microsoft on the subject : [How to manage WSL disk space](https://learn.microsoft.com/en-us/windows/wsl/disk-space)
+
+### Default folder
+
+By default, new WSL instances are using the default windows home folder, monted on the vm.
+
+For more convenience, the module is automatically place the user on his WSL home folder when he start an instance.
+
+For example, if the user `bob` start an instance, he will be place on the folder `/homr/bob` instead of `/mnt/c/Users/bob` by default.
+
+To do this, the module add the command `cd ~` on the file `~/.bashrc` of the user.
