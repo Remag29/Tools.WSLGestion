@@ -72,17 +72,18 @@ function New-WSL {
     }
 
     # Create the WSL instance
-    Write-Host "Creating the WSL instance $Name" -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host "|-- Creating the WSL instance $Name" -ForegroundColor Cyan
     wsl.exe --import $Name $VhdDestinationFolder $DistroPath
 
     # Add defaul user to the WSL instance
-    Write-Host "Adding the default user to the WSL instance $Name" -ForegroundColor Cyan
+    Write-Host "╰─ Adding the default user to the WSL instance $Name" -ForegroundColor Cyan
 
     # Ask for the password and confirm it
     $passwordIncorrect = $true
     while ($passwordIncorrect) {
-        $password = Read-Host "Enter the password for the user $Username" -AsSecureString
-        $passwordConfirmation = Read-Host "Confirm the password for the user $Username" -AsSecureString
+        $password = Read-Host "> Enter the password for the user $Username" -AsSecureString
+        $passwordConfirmation = Read-Host "> Confirm the password for the user $Username" -AsSecureString
         
         if (Compare-SecureString -secureString1 $password -secureString2 $passwordConfirmation) {
             $passwordIncorrect = $false
@@ -98,10 +99,12 @@ function New-WSL {
 
     # Test if the WSL instance has been created
     if (Test-WSLInstance -Name $Name) {
-        Write-Host "The WSL instance $Name has been created" -ForegroundColor Green
+        Write-Host ""
+        Write-Host "|- The WSL instance $Name has been created" -ForegroundColor Green
     }
     else {
-        Write-Host "The WSL instance $Name hasn't been created" -ForegroundColor Red
+        Write-Host ""
+        Write-Host "|- The WSL instance $Name hasn't been created" -ForegroundColor Red
     }
     
 }
