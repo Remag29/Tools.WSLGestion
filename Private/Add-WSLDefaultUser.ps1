@@ -24,7 +24,7 @@ function Add-WSLDefaultUser {
     wsl.exe --distribution $WslInstanceName -e bash -c "useradd -m -G sudo -s /bin/bash $Username"
 
     # Set the password for the user
-    wsl.exe --distribution $WslInstanceName -e bash -c "echo $Username\:$(ConvertTo-SecureString -AsPlainText -Force $Password) | chpasswd"
+    wsl.exe --distribution $WslInstanceName -e bash -c "echo $Username\:$(ConvertFrom-SecureString -AsPlainText $Password) | chpasswd"
 
     # Set the default user
     wsl.exe --distribution $WslInstanceName -e bash -c "echo '[user]' > /etc/wsl.conf"
