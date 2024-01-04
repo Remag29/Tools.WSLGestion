@@ -59,6 +59,10 @@ Edit-WSLConfig -DistrosPath ".\my\distro.tar.gz" -VhdDestinationFolder ".\vhd\" 
 
 > Note that you can only specify the parameters that you want to change. The others will not be modified.
 
+## Uninstallation
+
+To uninstall the module, simply delete the folder `Tools.WSLGestion` from your module repository.
+
 ## Other informations
 
 ### Default User
