@@ -111,6 +111,6 @@ By default, new WSL instances are using the default windows home folder, monted 
 
 For more convenience, the module is automatically place the user on his WSL home folder when he start an instance.
 
-For example, if the user `bob` start an instance, he will be place on the folder `/homr/bob` instead of `/mnt/c/Users/bob` by default.
+For example, if the user `bob` start an instance, he will be place on the folder `/home/bob` instead of `/mnt/c/Users/bob` by default.
 
 To do this, the module add the command `cd ~` on the file `~/.bashrc` of the user.
