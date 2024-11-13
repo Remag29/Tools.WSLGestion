@@ -26,5 +26,23 @@ function Reset-WslConfigFile {
         }
     }
 
-    $content | ConvertTo-Json | Out-File -FilePath "$script:ModulePath\config\configuration.json" -Encoding utf8 -Force
+    $defaultPath = "$HOME\.tools.wslgestion\"
+
+    # Test the folder
+    if (-not (Test-Path -Path $defaultPath)) {
+        New-Item -Path $defaultPath -ItemType Directory | Out-Null
+    }
+
+    # Test the file
+    if (-not (Test-Path -Path "$defaultPath\config.json")) {
+        Write-Host "[Reset-WslGestion] - File not found. Create it." -ForegroundColor Cyan
+        New-Item -Path "$defaultPath\config.json" -ItemType File | Out-Null
+    }
+    else {
+        Write-Host "[Reset-WslGestion] - Reseting the configuration file..." -ForegroundColor Cyan
+    }
+
+    $content | ConvertTo-Json | Out-File -FilePath "$defaultPath\config.json" -Encoding utf8 -Force
+
+    Write-Host "[Reset-WslGestion] - File created or reset successfuly !" -ForegroundColor Green
 }
