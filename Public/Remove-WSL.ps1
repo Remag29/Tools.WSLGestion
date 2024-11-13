@@ -38,6 +38,7 @@ function Remove-WSL {
         # Remove the WSL instance
         Write-Host "╰─ Removing the WSL instance $Name ..." -ForegroundColor Cyan
         wsl.exe --unregister $Name
+
     } else {
         Write-Host ""
         Write-Host "|- The WSL instance $Name doesn't exist" -ForegroundColor Red

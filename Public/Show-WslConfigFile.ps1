@@ -14,7 +14,7 @@ function Show-WslConfigFile {
     param (
     )
     
-    $wslConfigFile = Get-Content -Path $script:ModulePath\config\configuration.json -Raw | ConvertFrom-Json
+    $wslConfigFile = Get-Content -Path $HOME\.tools.wslgestion\config.json -Raw | ConvertFrom-Json
 
     $wslConfigFile.DefaultConfig | Format-List
 }

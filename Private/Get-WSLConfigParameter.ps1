@@ -15,7 +15,7 @@ function Get-WSLConfigParameter {
     )
     
     # Get the config file content
-    $configFileContent = (Get-Content -Path $script:ModulePath\config\configuration.json -Raw | ConvertFrom-Json).DefaultConfig
+    $configFileContent = (Get-Content -Path $HOME\.tools.wslgestion\config.json -Raw | ConvertFrom-Json).DefaultConfig
     Write-Host "|-- Load parameters from config file" -ForegroundColor Cyan
 
     # Get parameters from the config file if there are missing on the command line

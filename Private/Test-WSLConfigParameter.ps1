@@ -15,7 +15,7 @@ function Test-WSLConfigParameter {
     )
     
     # Get the config file content
-    $configFileContent = (Get-Content -Path $script:ModulePath\config\configuration.json -Raw | ConvertFrom-Json).DefaultConfig
+    $configFileContent = (Get-Content -Path $HOME\.tools.wslgestion\config.json -Raw | ConvertFrom-Json).DefaultConfig
 
     if ( $DistroPath -eq "" -and $configFileContent.DistroPath -eq "" ) {
         Write-Host "The distro path is missing on the command line and in the config file, please specify it"  -ForegroundColor Red

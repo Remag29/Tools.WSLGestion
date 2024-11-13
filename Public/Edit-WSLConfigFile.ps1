@@ -59,7 +59,7 @@ function Edit-WSLConfigFile {
     )
     
     # Get the content of the config file
-    $configFileContent = (Get-Content -Path $script:ModulePath\config\configuration.json -Raw | ConvertFrom-Json).DefaultConfig
+    $configFileContent = (Get-Content -Path $HOME\.tools.wslgestion\config.json -Raw | ConvertFrom-Json).DefaultConfig
     
     # Edit the config file content with non-empty parameters
     if ( $DistroPath ) {
@@ -76,7 +76,7 @@ function Edit-WSLConfigFile {
 
     # Save the new config file content
     $newContent = @{ DefaultConfig = $configFileContent }
-    $newContent | ConvertTo-Json | Set-Content -Path $script:ModulePath\config\configuration.json -Force
+    $newContent | ConvertTo-Json | Set-Content -Path $HOME\.tools.wslgestion\config.json -Force
 
     # Print the new config file content
     Show-WslConfigFile

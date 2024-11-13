@@ -99,10 +99,19 @@ function New-WSL {
         }
     }
 
+    # Create a subfolder for the VHD
+    try {
+        $vhdSubfolder = "$VhdDestinationFolder\$Name\"
+        New-Item -Path $vhdSubfolder -ItemType Directory | Out-Null
+    }
+    catch {
+        Write-Error "Impossible to create the folder for the VHD. ""$vhdSubfolder"""
+    }
+
     # Create the WSL instance
     Write-Host ""
     Write-Host "|-- Creating the WSL instance $Name" -ForegroundColor Cyan
-    wsl.exe --import $Name $VhdDestinationFolder $DistroPath
+    wsl.exe --import $Name $vhdSubfolder $DistroPath
 
     # Add defaul user to the WSL instance
     Write-Host "╰─ Adding the default user to the WSL instance $Name" -ForegroundColor Cyan

@@ -5,7 +5,7 @@ function Test-WSLConfigFile {
     )
     
     # Test if the config file exists
-    if (Test-Path -Path $script:ModulePath\config\configuration.json) {
+    if (Test-Path -Path $HOME\.tools.wslgestion\config.json) {
         return $true
     }
 
